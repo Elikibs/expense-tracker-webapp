@@ -9,11 +9,25 @@ const setBudgetButton = document.getElementById("total-amount-button");
 // Get reference to the Submit Amount button
 const submitAmountButton = document.getElementById("check-amount");
 
+let currentId = 1;
+
 
 setBudgetButton.addEventListener("click", () => {
     console.log(totalAmount.value)
+    fetch("http://localhost:3000/records", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            Budget: parseFloat(totalAmount.value)
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+
 })
- submitAmountButton.addEventListener("click", (e) => {
+ submitAmountButton.addEventListener("click", () => {
     console.log(productTitle.value)
     console.log(userAmount.value)
  })
