@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
   });
 
-  // Event delegation to handle delete button clicks
+  // Event delegation to handle delete button click
   expenseList.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-btn")) {
       const expenseId = e.target.id;
