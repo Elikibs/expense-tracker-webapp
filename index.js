@@ -75,8 +75,11 @@ function renderExpenseList(expenses) {
   `;
 
   totalAmount += expenses.cost;
-  balanceAmount = budgetAmount - totalAmount;  
+  balanceAmount = budgetAmount - totalAmount;
   expenseList.appendChild(expenseRow);
+  if (balanceAmount <= 0){
+    alert("Hey Champ! Your balance is 0")
+  }
   totalAmountElement.textContent = totalAmount.toFixed(2);
   balanceAmountElement.textContent = balanceAmount.toFixed(2);
 }
